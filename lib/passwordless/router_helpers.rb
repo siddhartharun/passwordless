@@ -30,12 +30,12 @@ module Passwordless
       pwless_resource = Passwordless.add_resource(resource, controller: controller)
 
       scope(defaults: pwless_resource.defaults) do
-        get("#{at}/sign_in", to: "#{controller}#new", as: :"#{as}sign_in")
-        post("#{at}/sign_in", to: "#{controller}#create")
-        get("#{at}/sign_in/:id", to: "#{controller}#show", as: :"verify_#{as}sign_in")
-        get("#{at}/sign_in/:id/:token", to: "#{controller}#confirm", as: :"confirm_#{as}sign_in")
-        patch("#{at}/sign_in/:id", to: "#{controller}#update")
-        match("#{at}/sign_out", to: "#{controller}#destroy", via: %i[get delete], as: :"#{as}sign_out")
+        get("#{at}/signin", to: "#{controller}#new", as: :"#{as}sign_in")
+        post("#{at}/signin", to: "#{controller}#create")
+        get("#{at}/signin/:id", to: "#{controller}#show", as: :"verify_#{as}sign_in")
+        get("#{at}/signin/:id/:token", to: "#{controller}#confirm", as: :"confirm_#{as}sign_in")
+        patch("#{at}/signin/:id", to: "#{controller}#update")
+        match("#{at}/signout", to: "#{controller}#destroy", via: %i[get delete], as: :"#{as}sign_out")
       end
     end
   end
